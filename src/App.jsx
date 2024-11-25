@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useReducer, createContext, useEffect } from "react";
-import { initialState, reducer } from "./Redux/store.js";
+import { initialState, reducer } from "./store.js";
 import Home from "./pages/Home/Home.jsx";
 import Navbar from "./components/LayOut/Navbar.jsx";
 import SignIn from "./pages/Auth/SignIn.jsx";
