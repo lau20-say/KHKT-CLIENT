@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useReducer, createContext, useEffect } from "react";
-import { initialState, reducer } from "./Redux/store";
+import { initialState, reducer } from "./Redux/store.js";
 import Home from "./pages/Home/Home.jsx";
 import Navbar from "./components/LayOut/Navbar.jsx";
 import SignIn from "./pages/Auth/SignIn.jsx";
@@ -18,26 +18,26 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { enqueueSnackbar } = useSnackbar();
 
-    useEffect(() => {
-      if (
-        localStorage.getItem("Fullname") &&
-        localStorage.getItem("Email") &&
-        localStorage.getItem("Avatar") &&
-        localStorage.getItem("AccessToken") &&
-        localStorage.getItem("Id")
-      ) {
-        dispatch({
-          type: "USER_LOGIN",
-          payload: {
-            name: localStorage.getItem("Fullname"),
-            email: localStorage.getItem("Email"),
-            avatar: localStorage.getItem("Avatar"),
-            accessToken: localStorage.getItem("AccessToken"),
-            id: localStorage.getItem("Id"),
-          },
-        });
-      }
-    }, []);
+  useEffect(() => {
+    if (
+      localStorage.getItem("Fullname") &&
+      localStorage.getItem("Email") &&
+      localStorage.getItem("Avatar") &&
+      localStorage.getItem("AccessToken") &&
+      localStorage.getItem("Id")
+    ) {
+      dispatch({
+        type: "USER_LOGIN",
+        payload: {
+          name: localStorage.getItem("Fullname"),
+          email: localStorage.getItem("Email"),
+          avatar: localStorage.getItem("Avatar"),
+          accessToken: localStorage.getItem("AccessToken"),
+          id: localStorage.getItem("Id"),
+        },
+      });
+    }
+  }, []);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
