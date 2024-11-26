@@ -16,7 +16,7 @@ function RoomCard({
   const { state, dispatch } = useContext(AppContext);
   const navigate = useNavigate();
   const join = () => {
-    window.location.href = `http://localhost:5001/start-call?roomId=${uuid}&accessToken=${state.user.accessToken}`;
+    window.location.href = `https://khkt-room.onrender.com/start-call?roomId=${uuid}&accessToken=${state.user.accessToken}`;
   };
   return (
     <div className="w-full mx-auto bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 p-6">
